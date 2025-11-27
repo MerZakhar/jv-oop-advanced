@@ -15,26 +15,31 @@ public class FigureSupplier {
         int figureNumber = random.nextInt(FIGURE_COUNT);
 
         switch (figureNumber) {
-            case 0:
+            case 0: {
                 final double side = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 return new Square(colorSupplier.getRandomColor(), side);
-            case 1:
+            }
+            case 1: {
                 final double radius = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 return new Circle(colorSupplier.getRandomColor(), radius);
-            case 2:
+            }
+            case 2: {
                 final double width = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 final double height = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 return new Rectangle(colorSupplier.getRandomColor(), width, height);
-            case 3:
+            }
+            case 3: {
                 final double firstLeg = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 final double secondLeg = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 return new RightTriangle(colorSupplier.getRandomColor(), firstLeg, secondLeg);
-            case 4:
+            }
+            case 4: {
                 final double bottomBase = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 final double topBase = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                final double height2 = random.nextDouble(MIN_SIZE, MAX_SIZE);
+                final double height = random.nextDouble(MIN_SIZE, MAX_SIZE);
                 return new IsoscelesTrapezoid(colorSupplier.getRandomColor(), bottomBase,
-                        topBase, height2);
+                        topBase, height);
+            }
             default:
                 return getDefaultFigure();
         }

@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-public class RightTriangle extends Figure {
+public class RightTriangle extends Figure implements Drawable, HasArea {
     private final double firstLeg;
     private final double secondLeg;
 
@@ -11,12 +11,12 @@ public class RightTriangle extends Figure {
     }
 
     @Override
-    double area() {
+    public double area() {
         return (firstLeg * secondLeg) / 2;
     }
 
     @Override
-    void draw() {
+    public void draw() {
         System.out.println("Figure: right triangle, area: " + area() + " sq. units, firstLeg: "
                 + this.firstLeg + " units, secondLeg: " + this.secondLeg
                 + " units, color: " + getColor());

@@ -10,8 +10,4 @@ abstract class Figure {
     public String getColor() {
         return color;
     }
-
-    abstract double area();
-
-    abstract void draw();
 }

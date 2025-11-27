@@ -1,10 +1,12 @@
 package core.basesyntax;
 
 public class Main {
-    private static final FigureSupplier FIGURE_SUPPLIER = new FigureSupplier();
+    private static final int FIGURE_COUNT = 6;
 
     public static void main(String[] args) {
-        Figure[] figures = new Figure[6];
+        Figure[] figures = new Figure[FIGURE_COUNT];
+
+        FigureSupplier FIGURE_SUPPLIER = new FigureSupplier();
 
         for (int i = 0; i < figures.length; i++) {
             if (i < figures.length / 2) {
@@ -15,7 +17,7 @@ public class Main {
         }
 
         for (Figure figure: figures) {
-            figure.draw();
+            ((Drawable) figure).draw();
         }
     }
 }
