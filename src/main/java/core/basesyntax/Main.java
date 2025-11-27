@@ -6,13 +6,13 @@ public class Main {
     public static void main(String[] args) {
         Figure[] figures = new Figure[FIGURE_COUNT];
 
-        FigureSupplier FIGURE_SUPPLIER = new FigureSupplier();
+        FigureSupplier figureSupplier = new FigureSupplier();
 
         for (int i = 0; i < figures.length; i++) {
             if (i < figures.length / 2) {
-                figures[i] = FIGURE_SUPPLIER.getRandomFigure();
+                figures[i] = figureSupplier.getRandomFigure();
             } else {
-                figures[i] = FIGURE_SUPPLIER.getDefaultFigure();
+                figures[i] = figureSupplier.getDefaultFigure();
             }
         }
 
