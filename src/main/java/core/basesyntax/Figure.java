@@ -1,8 +1,17 @@
 package core.basesyntax;
 
-abstract class Figures {
-    private String color;
+abstract class Figure {
+    private final String color;
 
-    abstract String getColor();
+    Figure(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    abstract double area();
+
     abstract void draw();
 }
