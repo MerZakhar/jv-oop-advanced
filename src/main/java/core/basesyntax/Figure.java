@@ -1,9 +1,9 @@
 package core.basesyntax;
 
-abstract class Figure {
+public abstract class Figure {
     private final String color;
 
-    Figure(String color) {
+    public Figure(String color) {
         this.color = color;
     }
 

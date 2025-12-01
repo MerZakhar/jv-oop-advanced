@@ -1,11 +1,11 @@
 package core.basesyntax;
 
-public class IsoscelesTrapezoid extends Figure implements Drawable, HasArea {
+public class IsoscelesTrapezoid extends Figure implements Drawable, CalculateArea {
     private final double bottomBase;
     private final double topBase;
     private final double height;
 
-    IsoscelesTrapezoid(String color, double bottomBase, double topBase, double height) {
+    public IsoscelesTrapezoid(String color, double bottomBase, double topBase, double height) {
         super(color);
         this.bottomBase = bottomBase;
         this.topBase = topBase;

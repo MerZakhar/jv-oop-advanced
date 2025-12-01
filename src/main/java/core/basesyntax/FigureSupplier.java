@@ -8,36 +8,37 @@ public class FigureSupplier {
     public static final double MAX_SIZE = 15.0;
     public static final double DEFAULT_RADIUS = 10.0;
 
-    private Random random = new Random();
+    private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
 
     public Figure getRandomFigure() {
         int figureNumber = random.nextInt(FIGURE_COUNT);
+        String randomColor = colorSupplier.getRandomColor();
 
         switch (figureNumber) {
             case 0: {
-                final double side = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                return new Square(colorSupplier.getRandomColor(), side);
+                final double side = randomSize();
+                return new Square(randomColor, side);
             }
             case 1: {
-                final double radius = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                return new Circle(colorSupplier.getRandomColor(), radius);
+                final double radius = randomSize();
+                return new Circle(randomColor, radius);
             }
             case 2: {
-                final double width = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                final double height = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                return new Rectangle(colorSupplier.getRandomColor(), width, height);
+                final double width = randomSize();
+                final double height = randomSize();
+                return new Rectangle(randomColor, width, height);
             }
             case 3: {
-                final double firstLeg = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                final double secondLeg = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                return new RightTriangle(colorSupplier.getRandomColor(), firstLeg, secondLeg);
+                final double firstLeg = randomSize();
+                final double secondLeg = randomSize();
+                return new RightTriangle(randomColor, firstLeg, secondLeg);
             }
             case 4: {
-                final double bottomBase = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                final double topBase = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                final double height = random.nextDouble(MIN_SIZE, MAX_SIZE);
-                return new IsoscelesTrapezoid(colorSupplier.getRandomColor(), bottomBase,
+                final double bottomBase = randomSize();
+                final double topBase = randomSize();
+                final double height = randomSize();
+                return new IsoscelesTrapezoid(randomColor, bottomBase,
                         topBase, height);
             }
             default:
@@ -46,6 +47,10 @@ public class FigureSupplier {
     }
 
     public Figure getDefaultFigure() {
-        return new Circle(Colors.WHITE.name(), DEFAULT_RADIUS);
+        return new Circle(Color.WHITE.name(), DEFAULT_RADIUS);
+    }
+
+    private double randomSize() {
+        return random.nextDouble(MIN_SIZE, MAX_SIZE);
     }
 }
